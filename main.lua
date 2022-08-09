@@ -5,13 +5,12 @@ local BytesCommands = {
     ["Name"] = "byte's commands",
     ["Author"] = "ByteSizedBit",
     ["Init"] = function()
-        print("byte's commands loaded");
         Notify(LocalPlayer, "Byte's Commands", "Byte's Commands Loaded")
     end,
     ["Commands"] = {
         { -- removefog
             ["Name"] = "removefog",
-            ["Description"] = "Removes all fog from Lighting",
+            ["Description"] = "removes all fog from Lighting",
             ["Aliases"] = {"nofog", "rfog"},
             ["Func"] = function(caller,args,commandenv)
                 commandenv["FogEnd"] = Lighting.FogEnd
@@ -28,7 +27,7 @@ local BytesCommands = {
         },
         { -- unremovefog
             ["Name"] = "unremovefog",
-            ["Description"] = "Removes all fog from Lighting",
+            ["Description"] = "removes all fog from Lighting",
             ["Aliases"] = {"unrfog", "unnofog"},
             ["Func"] = function()
                 local rfcenv = GetCommandEnv("removefog")
@@ -76,11 +75,8 @@ local BytesCommands = {
             ["Aliases"] = {"grav"},
             ["Requirements"] = {"1"},
             ["Func"] = function(caller, args, cenv)
-                if not args[1] then
-                    return "gravity expected"
-                end
                 SpoofProperty(Services.Workspace, "Gravity");
-                Services.Workspace.Gravity = tonumber(args[1]) or Services.Workspace.Gravity
+                Services.Workspace.Gravity = tonumber(args[1]) or 196.2
                 return "set gravity to " .. args[1]
             end
         }
